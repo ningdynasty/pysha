@@ -23,36 +23,14 @@ from display_utils import show_notification
 
 class Track(object):
 
-    # midi
-    midi_out = None
-    available_midi_out_device_names = []
-    midi_out_channel = 0  # 0-15
-    midi_out_tmp_device_idx = None  # This is to store device names while rotating encoders
-
-    midi_in = None
-    available_midi_in_device_names = []
-    midi_in_channel = 0  # 0-15
-    midi_in_tmp_device_idx = None  # This is to store device names while rotating encoders
-
-    # push
-    push = None
-    use_push2_display = None
-    target_frame_rate = None
-
-    # frame rate measurements
-    actual_frame_rate = 0
-    current_frame_rate_measurement = 0
-    current_frame_rate_measurement_second = 0
-
-    # other state vars
-    active_modes = []
-    previously_active_mode_for_xor_group = {}
-    pads_need_update = True
-    buttons_need_update = True
-
-    # notifications
-    notification_text = None
-    notification_time = 0
+    #class variables
+    id = None
+    name = None
+    midi_device_out = None
+    midi_channel_out = None
+    midi_device_in = None
+    midi_channel_in = None
+    midi_through = None
 
     def __init__(self):
         if os.path.exists('settings.json'):
