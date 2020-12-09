@@ -22,18 +22,21 @@ from preset_selection_mode import PresetSelectionMode
 from display_utils import show_notification
 
 class Track(object):
+    
+    def __init__(self, id, name):
+    
+        self.id = None
+        self.name = None
+        self.midi_device_out = None
+        self.midi_channel_out = None
+        self.midi_device_in = None
+        self.midi_channel_in = None
+        self.midi_through = None
 
-    #class variables
-    id = None
-    name = None
-    midi_device_out = None
-    midi_channel_out = None
-    midi_device_in = None
-    midi_channel_in = None
-    midi_through = None
+    def __str__(self):
+        return self.name
 
-    def __init__(self):
-        if os.path.exists('settings.json'):
+if os.path.exists('settings.json'):
             settings = json.load(open('settings.json'))
         else:
             settings = {}
